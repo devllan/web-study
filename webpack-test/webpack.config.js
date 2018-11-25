@@ -23,8 +23,12 @@ const config = {
                 test: /\.vue$/,
                 use: [
                     'vue-loader',
-                    // 'css-loader',
-                    // 'style-loader',
+                ]
+            },
+            {
+                test: /\.jsx/,
+                use: [
+                    'babel-loader',
                 ]
             },
             {
@@ -33,6 +37,20 @@ const config = {
                     'style-loader',
                     'css-loader',
 
+                ]
+            },
+            {
+                test: /\.styl/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    {
+                        loader:'postcss-loader',
+                        options:{
+                            sourceMap:true,
+                        }
+                    },
+                    'stylus-loader'
                 ]
             },
             {
